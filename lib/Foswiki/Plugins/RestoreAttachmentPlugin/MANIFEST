@@ -1,0 +1,5 @@
+# Release manifest for RestoreAttachmentPlugin
+data/System/RestoreAttachmentPlugin.txt 0644 Documentation
+lib/Foswiki/Plugins/RestoreAttachmentPlugin.pm 0644 Perl module
+lib/Foswiki/Plugins/RestoreAttachmentPlugin/Config.spec 0644 Perl module
+bin/restore 0777 Perl module
