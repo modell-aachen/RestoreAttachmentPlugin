@@ -216,11 +216,11 @@ sub restoreAttachment {
     }
 
     #print STDERR "VIEWFILE: web($webName), topic($topic), file($fileName)\n";
-    
+
     #Alex: time based query
     #Datei Revision auf Grund der Topic Zeit herausfinden
 	my $rev = $query->param('rev');
-    
+
     unless ( $fileName
         && $session->{store}->attachmentExists( $webName, $topic, $fileName ) )
     {
@@ -245,10 +245,10 @@ sub restoreAttachment {
 
     require File::Temp;
     my $tmpDir = Foswiki::Func::getWorkArea( 'RestoreAttachmentPlugin' );
-    my $ft = new File::Temp(DIR => $tmpDir); # will be unlinked on destroy    
+    my $ft = new File::Temp(DIR => $tmpDir); # will be unlinked on destroy
 #    my $ft = new File::Temp(); # will be unlinked on destroy
     # Ende
-        
+
     my $fn = $ft->filename();
     binmode($ft);
     print $ft $fileContent;
@@ -257,7 +257,7 @@ sub restoreAttachment {
     #my $type   = _suffixToMimeType( $fileName );
     #my $length = length($fileContent);
     #my $dispo  = 'inline;filename=' . $fileName;
-    
+
     my $error = Foswiki::Func::saveAttachment(
 		$webName, $topic,
         $fileName,
@@ -277,11 +277,11 @@ sub restoreAttachment {
             params => [ 'viewfile', $fileName || '?' ]
         );
      }
-    
-    
+
+
     #Alex: Hier muss eigentlich der aktuelle Screen geupdatet werden...
     #returnRESTResult($session->{response}, 200, "Redirect $webName.$topic");
-    Foswiki::Func::redirectCgiQuery( $query, Foswiki::Func::getScriptUrl($webName, $topic, 'view'), 1)
+    Foswiki::Func::redirectCgiQuery( $query, Foswiki::Func::getScriptUrl($webName, $topic, 'view') )
 
 }
 
