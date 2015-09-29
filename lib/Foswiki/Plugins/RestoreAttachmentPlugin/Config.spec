@@ -2,7 +2,7 @@
 # ---++ RestoreAttachmentPlugin
 # Configuration values for RestoreAttachmentPlugin
 
-# **PERL H**
+# **PERL HIDDEN**
 $Foswiki::cfg{SwitchBoard}{restore} = {
     package  => 'Foswiki::Plugins::RestoreAttachmentPlugin',
     function => 'restoreAttachment',
