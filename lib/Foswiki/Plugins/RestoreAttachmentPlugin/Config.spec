@@ -2,7 +2,7 @@
 #---++ RestoreAttachmentPlugin
 # Configuration values for RestoreAttachmentPlugin
 
-# **PERL H**
+# **PERL HIDDEN**
 # This setting is required to enable executing the compare script from the bin directory
 $Foswiki::cfg{SwitchBoard}{restore} = {
     package  => 'Foswiki::Plugins::RestoreAttachmentPlugin',
