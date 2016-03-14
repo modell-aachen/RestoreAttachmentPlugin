@@ -258,6 +258,7 @@ sub restoreAttachment {
     #my $length = length($fileContent);
     #my $dispo  = 'inline;filename=' . $fileName;
 
+    my $fz = -s $fn;
     my $error = Foswiki::Func::saveAttachment(
 		$webName, $topic,
         $fileName,
@@ -266,6 +267,7 @@ sub restoreAttachment {
                 comment     => "Restored file",
                 filedate    => time(),
                 file        => $fn,
+                filesize    => $fz,
             });
      if ($error) {
 			throw Foswiki::OopsException(
