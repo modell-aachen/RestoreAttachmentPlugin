@@ -174,7 +174,7 @@ sub restoreAttachment {
         # work out the web, topic and filename
         $webName = '';
         while ( $path[0]
-                  && ($session->{store}->webExists($webName.$path[0]))) {
+                  && ($session->{store}->webExists($webName.$path[0]))) { # XXX
             $webName .= shift(@path).'/';
         }
         # The web name has been validated, untaint
@@ -222,7 +222,7 @@ sub restoreAttachment {
 	my $rev = $query->param('rev');
 
     unless ( $fileName
-        && $session->{store}->attachmentExists( $webName, $topic, $fileName ) )
+        && Foswiki::Func::attachmentExists( $webName, $topic, $fileName ) )
     {
         throw Foswiki::OopsException(
             'attention',
